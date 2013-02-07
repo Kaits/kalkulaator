@@ -1,0 +1,10 @@
+<% @calculations.each do |calculation| %>
+	<p><%= link_to calculation.aktsia_nimi, calculation %></p>
+	<p>
+	  <%= link_to "Muuda", edit_calculation_path(calculation) %>
+          <%= link_to "Kustuta", calculation, :confirm => "Are you sure?", :method => :delete %>
+	</p>
+	<hr>
+<% end %>
+
+<p><%= link_to "Lisa uus aktsia", new_calculation_path %></p>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  aktsia_nimi: MyString
+  hind: 9.99
+  kogus: 9.99
+  protsent: 9.99
+  aastad: 1
+
+two:
+  aktsia_nimi: MyString
+  hind: 9.99
+  kogus: 9.99
+  protsent: 9.99
+  aastad: 1

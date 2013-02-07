@@ -1,0 +1,51 @@
+<p>Aktsia nimi: <%= @calculation.aktsia_nimi %></p>
+<p>Hind: <%= @calculation.hind %></p>
+<p>Kogus: <%= @calculation.kogus %></p>
+<p>Protsent: <%= @calculation.protsent %></p>
+<p>Aastad: <%= @calculation.aastad %></p>
+<small>Aeg: <%= @calculation.created_at %></small>
+<br /><br />
+	<%= @calculation.aktsia_nimi %> <br />
+	<% @amount = (@calculation.hind * @calculation.kogus) %> 
+	<% @percent = (@calculation.hind * @calculation.kogus) / @calculation.protsent %> 
+  <% for i in 0..@calculation.aastad do %> 
+	<% @newAmount = ((@amount/(@percent)) + @amount) %>
+	<%= "#{i}" + " - #{@amount}" %><br />
+	<% @amount=@newAmount %>
+  <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+	renderTo: "calculations_chart"
+      },
+      title: {
+	text: "Summa aasta kohta"
+      },
+      xAxis: {
+	text: "Aastad"
+      },
+      yAxis: {
+	title: {
+	  text: "Summa"
+        }
+      },
+	series: [
+      {
+      data: [
+	<% @amount = (@calculation.hind * @calculation.kogus) %> 
+	<% @percent = (@calculation.hind * @calculation.kogus) / 		@calculation.protsent %> 
+	<% for i in 0..@calculation.aastad do %> 
+        <% @newAmount = ((@amount/(@percent)) + @amount) %>
+        <%= @amount %>
+        <% @amount=@newAmount %>,
+<% end %>
+ ]}
+]
+    });
+  });
+</script>
+<div id="calculations_chart" style="width:560px; height:300px;"></div>
+
+

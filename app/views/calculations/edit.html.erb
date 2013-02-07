@@ -1,0 +1,11 @@
+<p>Muuda andmeid: </p>
+<%= form_for @calculation do |f| %>
+  Aktsia nimi: <%= f.text_field :aktsia_nimi %><br />
+  Hind: <%= f.text_field :hind %><br />
+  Kogus: <%= f.text_field :kogus %><br />
+  Protsent: <%= f.text_field :protsent %><br />
+  Aastad: <%= f.text_field :aastad %><br />
+  <%= f.submit 'Uuenda' %>
+<% end %>
+
+
